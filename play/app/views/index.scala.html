@@ -1,0 +1,14 @@
+@()
+<html>
+    <head><title>Example Websocket</title></head>
+    <body>
+        <p id="eventMessage"></p>
+    </body>
+    <script>
+        var exampleSocket = new WebSocket("ws://" + window.location.host + "/ws");
+        exampleSocket.onmessage = function (event) {
+            console.log("Event from server", event);
+            document.getElementById("eventMessage").textContent = event.data;
+        }
+    </script>
+</html>
